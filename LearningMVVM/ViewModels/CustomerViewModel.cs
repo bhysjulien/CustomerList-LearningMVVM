@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using LearningMVVM.PointOfTruthStore;
+﻿using System.Windows.Input;
+
 
 namespace LearningMVVM.ViewModels
 {
-    public class CustomerViewModel :ViewModelBase
+    // Represents the viewmodel for the customer view
+    public class CustomerViewModel : ViewModelBase
     {
-        public CustomerDetailViewModel CustomerDetailViewModel { get;}
+        // Properties for the customerdetailviewmodel and customerlistviewmodel
+        public CustomerDetailViewModel CustomerDetailViewModel { get; }
         public CustomerListViewModel CustomerListViewModel { get; }
-        public ICommand AddCustomerCommand { get;}
+        public ICommand AddCustomerCommand { get; }
 
+        // Property for selected client
         public PointOfTruthStore.SelectedClient PointOfTruthStore { get; }
 
-        public CustomerViewModel(PointOfTruthStore.SelectedClient selectedClient)        {
+        // Constructor for customer viewmodel
+        public CustomerViewModel(PointOfTruthStore.SelectedClient selectedClient)
+        {
+            // Instantiate the customerdetailviewmodel and customerlistviewmodel
             CustomerDetailViewModel = new CustomerDetailViewModel(selectedClient);
             CustomerListViewModel = new CustomerListViewModel(selectedClient);
         }

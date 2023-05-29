@@ -19,7 +19,10 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Text="Customer Information" FontSize="42" Margin="10"/>
+            <TextBlock 
+                Grid.Column="0" 
+                Text="Customer Information" 
+                Style="{StaticResource PageHeader}"/>
             <Button 
                 Grid.Column="1"
                 Content="Add" 

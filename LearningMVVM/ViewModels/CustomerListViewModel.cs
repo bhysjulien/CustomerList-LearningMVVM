@@ -9,6 +9,7 @@ using LearningMVVM.PointOfTruthStore;
 
 namespace LearningMVVM.ViewModels
 {
+    // View Model for the list of customers
     public class CustomerListViewModel : ViewModelBase
     {
         private readonly SelectedClient m_selectedClient;
@@ -23,16 +24,20 @@ namespace LearningMVVM.ViewModels
             get { return m_SelectedCustomerListingItemViewModel; }
             set
             {
-                m_SelectedCustomerListingItemViewModel = value; 
+                m_SelectedCustomerListingItemViewModel = value;
                 OnPropertyChanged(nameof(SelectedCustomerListingItemViewModel));
+                // update the selected customer in the data repository
                 m_selectedClient.SelectedCustomer = m_SelectedCustomerListingItemViewModel?.Customer;
             }
         }
-        public CustomerListViewModel(SelectedClient selectedClient)
-        {
+
+        // Constructs the view model with the selected client
+            public CustomerListViewModel(SelectedClient selectedClient)
+            {
             m_selectedClient = selectedClient;
             m_customerListingItemViewModels = new ObservableCollection<CustomerListingItemViewModel>
             {
+                // add sample customers 
                 new CustomerListingItemViewModel(new Customer("MyName", true, false)),
                 new CustomerListingItemViewModel(new Customer("JoName", false, false)),
                 new CustomerListingItemViewModel(new Customer("John Smith", true, true)),
